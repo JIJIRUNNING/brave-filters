@@ -10,5 +10,6 @@ Les commentaires et la description des vidéos doivent toujours rester visibles.
 - Mac, extension Unhook : laisser « Hide Comments » et « Hide Video Info » désactivés.
 
 ## Listes Brave activées en plus de ces fichiers
-- iPhone et Mac : YouTube Playables blocker, YouTube autodubbed videos blocker, YouTube members-only video blocker (vérifiées le 01/11/2026 : rien sur les commentaires ni la description).
+- iPhone et Mac : YouTube Playables blocker, YouTube autodubbed videos blocker (vérifiées le 01/11/2026 : rien sur les commentaires ni la description).
+- Volontairement non activée : YouTube members-only video blocker (JS garde les vidéos réservées aux membres).
 - iPhone seulement : YouTube Shorts blocker, YouTube recommendations blocker (mobile-only). Sur le Mac, Unhook s'en charge.
