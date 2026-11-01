@@ -1,0 +1,7 @@
+! Title: YouTube ordinateur – filtres perso
+! Description: Masque les sections ajoutées au fil d'accueil de www.youtube.com
+! Expires: 1 day
+! Syntaxe : uBlock Origin / Brave Shields
+
+! ---- Accueil : section « Most relevant » (texte de l'interface en anglais)
+www.youtube.com##ytd-rich-section-renderer:has-text(Most relevant)

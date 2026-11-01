@@ -7,23 +7,32 @@ if [ -z "${1:-}" ]; then
   exit 1
 fi
 
-git add youtube-mobile.txt && git commit -m "$1" && git push || exit 1
+LISTES=(youtube-*.txt)
+git add "${LISTES[@]}" && git commit -m "$1" && git push || exit 1
 
-URL="https://raw.githubusercontent.com/JIJIRUNNING/brave-filters/main/youtube-mobile.txt"
-LOCAL=$(shasum -a 256 youtube-mobile.txt | cut -d' ' -f1)
+BASE="https://raw.githubusercontent.com/JIJIRUNNING/brave-filters/main"
 TMP=$(mktemp)
 trap 'rm -f "$TMP"' EXIT
 
+verifier() {
+  local f=$1 local_sha code dist
+  local_sha=$(shasum -a 256 "$f" | cut -d' ' -f1)
+  code=$(curl -sS -o "$TMP" -w '%{http_code}' "$BASE/$f")
+  dist=$(shasum -a 256 "$TMP" | cut -d' ' -f1)
+  [ "$code" = "200" ] && [ "$dist" = "$local_sha" ] && return 0
+  echo "  $f : HTTP $code, sha256 local $local_sha, distant $dist" >&2
+  return 1
+}
+
 for essai in 0 1 2 3; do
   [ "$essai" -gt 0 ] && { echo "Écart (cache GitHub ?), nouvel essai $essai/3 dans 60 s"; sleep 60; }
-  CODE=$(curl -sS -o "$TMP" -w '%{http_code}' "$URL")
-  DIST=$(shasum -a 256 "$TMP" | cut -d' ' -f1)
-  if [ "$CODE" = "200" ] && [ "$DIST" = "$LOCAL" ]; then
-    echo "OK : HTTP 200, sha256 identique ($LOCAL)"
-    echo "$URL"
+  ok=1
+  for f in "${LISTES[@]}"; do verifier "$f" || ok=0; done
+  if [ "$ok" = 1 ]; then
+    for f in "${LISTES[@]}"; do echo "OK : $BASE/$f"; done
     exit 0
   fi
 done
 
-echo "ÉCHEC : HTTP $CODE, sha256 local $LOCAL, distant $DIST" >&2
+echo "ÉCHEC de la vérification" >&2
 exit 1
