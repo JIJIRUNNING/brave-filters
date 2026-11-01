@@ -6,7 +6,9 @@
 
 ! ---- Accueil m.youtube.com : uniquement sur "/" ou "/?..." (ex. /?ra=m)
 ! [/] et [?] évitent les antislashs dans l'expression régulière
+! Grille des vidéos recommandées de l'accueil
 m.youtube.com##:matches-path(/^[/]([?]|$)/) ytm-rich-grid-renderer
+! Barre de thèmes en haut de l'accueil (Tout, Musique, Jeux vidéo…)
 m.youtube.com##:matches-path(/^[/]([?]|$)/) .chip-bar
 
 ! ---- Solution de repli si :matches-path ne fonctionne pas sur Brave iOS
@@ -14,14 +16,25 @@ m.youtube.com##:matches-path(/^[/]([?]|$)/) .chip-bar
 ! m.youtube.com##ytm-rich-grid-renderer
 
 ! ---- Lecteur : éléments de fin de vidéo et suggestions
+! Vignettes que le créateur place dans les dernières secondes (vidéo, chaîne, playlist, bouton S'abonner)
 youtube.com##.ytp-ce-element
+! Les mêmes vignettes, au moment où elles s'affichent
 youtube.com##.ytp-ce-element-show
+! Titre et description qui recouvrent une vignette de fin au survol
 youtube.com##.ytp-ce-covering-overlay
+! Image d'une vignette de fin qui s'agrandit au survol
 youtube.com##.ytp-ce-expanding-image
+! Mur de vidéos suggérées affiché à la fin de la vidéo
 youtube.com##.ytp-endscreen-content
+! Bandeau « Plus de vidéos » quand on met en pause (lecteurs intégrés)
 youtube.com##.ytp-pause-overlay
+! Écran « À suivre » avec compte à rebours de la lecture automatique
 youtube.com##.ytp-autonav-endscreen
+! Encadré de la vidéo suivante dans cet écran « À suivre »
 youtube.com##.ytp-autonav-endscreen-upnext-container
+! Bouton d'action suggérée posé sur la vidéo (produits, contenu lié)
 youtube.com##.ytp-suggested-action
+! Accroche des fiches d'information (le « i » en haut à droite)
 youtube.com##.ytp-cards-teaser
+! Vignettes du mur de vidéos de fin
 youtube.com##.ytp-videowall-still

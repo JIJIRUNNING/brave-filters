@@ -3,5 +3,6 @@
 ! Expires: 1 day
 ! Syntaxe : uBlock Origin / Brave Shields
 
-! ---- Accueil : section « Most relevant » (texte de l'interface en anglais)
+! ---- Accueil
+! Section « Most relevant » insérée dans la grille (repérée par son texte : à changer si YouTube passe en français)
 www.youtube.com##ytd-rich-section-renderer:has-text(Most relevant)
