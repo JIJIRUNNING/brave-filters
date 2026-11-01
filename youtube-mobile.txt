@@ -16,6 +16,7 @@ m.youtube.com##:matches-path(/^[/]([?]|$)/) .chip-bar
 ! m.youtube.com##ytm-rich-grid-renderer
 
 ! ---- Lecteur : éléments de fin de vidéo et suggestions
+! Raison : sur Brave iOS, ces affichages de vidéos suivantes bloquaient le passage en plein écran
 ! Vignettes que le créateur place dans les dernières secondes (vidéo, chaîne, playlist, bouton S'abonner)
 youtube.com##.ytp-ce-element
 ! Les mêmes vignettes, au moment où elles s'affichent
