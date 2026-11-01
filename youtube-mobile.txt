@@ -1,0 +1,27 @@
+! Title: YouTube mobile – filtres perso
+! Description: Masque le fil d'accueil de m.youtube.com et les éléments de fin de vidéo du lecteur
+! Expires: 1 day
+! Syntaxe : uBlock Origin / Brave Shields
+! À utiliser avec les listes Brave « YouTube Anti-Shorts » et « YouTube Mobile Recommendations »
+
+! ---- Accueil m.youtube.com : uniquement sur "/" ou "/?..." (ex. /?ra=m)
+! [/] et [?] évitent les antislashs dans l'expression régulière
+m.youtube.com##:matches-path(/^[/]([?]|$)/) ytm-rich-grid-renderer
+m.youtube.com##:matches-path(/^[/]([?]|$)/) .chip-bar
+
+! ---- Solution de repli si :matches-path ne fonctionne pas sur Brave iOS
+! Masque la grille sur TOUTES les pages : vérifier Abonnements et l'onglet Vidéos des chaînes avant de l'activer
+! m.youtube.com##ytm-rich-grid-renderer
+
+! ---- Lecteur : éléments de fin de vidéo et suggestions
+youtube.com##.ytp-ce-element
+youtube.com##.ytp-ce-element-show
+youtube.com##.ytp-ce-covering-overlay
+youtube.com##.ytp-ce-expanding-image
+youtube.com##.ytp-endscreen-content
+youtube.com##.ytp-pause-overlay
+youtube.com##.ytp-autonav-endscreen
+youtube.com##.ytp-autonav-endscreen-upnext-container
+youtube.com##.ytp-suggested-action
+youtube.com##.ytp-cards-teaser
+youtube.com##.ytp-videowall-still
