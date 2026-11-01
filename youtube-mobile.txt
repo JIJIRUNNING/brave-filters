@@ -5,16 +5,11 @@
 ! À utiliser avec les listes Brave « YouTube Anti-Shorts » et « YouTube Mobile Recommendations »
 ! RÈGLE ABSOLUE : commentaires et description de la vidéo toujours visibles. Ne rien ajouter qui les masque (voir README)
 
-! ---- Accueil m.youtube.com : uniquement sur "/" ou "/?..." (ex. /?ra=m)
-! [/] et [?] évitent les antislashs dans l'expression régulière
-! Grille des vidéos recommandées de l'accueil
-m.youtube.com##:matches-path(/^[/]([?]|$)/) ytm-rich-grid-renderer
-! Barre de thèmes en haut de l'accueil (Tout, Musique, Jeux vidéo…)
-m.youtube.com##:matches-path(/^[/]([?]|$)/) .chip-bar
-
-! ---- Solution de repli si :matches-path ne fonctionne pas sur Brave iOS
-! Masque la grille sur TOUTES les pages : vérifier Abonnements et l'onglet Vidéos des chaînes avant de l'activer
-! m.youtube.com##ytm-rich-grid-renderer
+! ---- Accueil m.youtube.com
+! Tout le contenu de l'onglet Accueil (grille des vidéos recommandées et barre de thèmes Tout, Musique, Jeux vidéo…)
+! FEwhat_to_watch = identifiant interne de l'accueil, indépendant de la langue. Les grilles des chaînes et des Abonnements ne l'ont pas
+! CSS simple : :matches-path n'était pas appliqué par Brave iOS (01/11/2026)
+m.youtube.com##[tab-identifier="FEwhat_to_watch"]
 
 ! ---- Lecteur : éléments de fin de vidéo et suggestions
 ! Raison : sur Brave iOS, ces affichages de vidéos suivantes bloquaient le passage en plein écran
