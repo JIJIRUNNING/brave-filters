@@ -3,6 +3,7 @@
 ! Expires: 1 day
 ! Syntaxe : uBlock Origin / Brave Shields
 ! À utiliser avec les listes Brave « YouTube Anti-Shorts » et « YouTube Mobile Recommendations »
+! RÈGLE ABSOLUE : commentaires et description de la vidéo toujours visibles. Ne rien ajouter qui les masque (voir README)
 
 ! ---- Accueil m.youtube.com : uniquement sur "/" ou "/?..." (ex. /?ra=m)
 ! [/] et [?] évitent les antislashs dans l'expression régulière

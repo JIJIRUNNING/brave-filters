@@ -2,6 +2,7 @@
 ! Description: Masque les sections ajoutées au fil d'accueil de www.youtube.com
 ! Expires: 1 day
 ! Syntaxe : uBlock Origin / Brave Shields
+! RÈGLE ABSOLUE : commentaires et description de la vidéo toujours visibles. Ne rien ajouter qui les masque (voir README)
 
 ! ---- Accueil
 ! Section « Most relevant » insérée dans la grille (repérée par son texte : à changer si YouTube passe en français)
