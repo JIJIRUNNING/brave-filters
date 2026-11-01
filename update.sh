@@ -24,8 +24,9 @@ verifier() {
   return 1
 }
 
-for essai in 0 1 2 3; do
-  [ "$essai" -gt 0 ] && { echo "Écart (cache GitHub ?), nouvel essai $essai/3 dans 60 s"; sleep 60; }
+# Cache raw de GitHub : 5 min (max-age=300)
+for essai in 0 1 2 3 4 5 6; do
+  [ "$essai" -gt 0 ] && { echo "Écart (cache GitHub ?), nouvel essai $essai/6 dans 60 s"; sleep 60; }
   ok=1
   for f in "${LISTES[@]}"; do verifier "$f" || ok=0; done
   if [ "$ok" = 1 ]; then
